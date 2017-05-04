@@ -2,8 +2,11 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-const MainApp = () => (
-  <h1>Hello World</h1>
-);
+import App from './App';
 
-ReactDOM.render(<MainApp />, document.getElementById('app')); // eslint-disable-line
+const MainApp = () => (<App />);
+
+ReactDOM.render(
+  <MainApp />,
+  document.getElementById('app'),
+);
