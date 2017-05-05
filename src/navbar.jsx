@@ -4,7 +4,8 @@ import IconButton from 'material-ui/IconButton';
 import NavigationBack from 'material-ui/svg-icons/navigation/arrow-back';
 import NavigationVert from 'material-ui/svg-icons/navigation/more-vert';
 import FlatButton from 'material-ui/FlatButton';
-
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 const css = {
   title: {
@@ -15,11 +16,13 @@ const css = {
   }
 };
 
+
 class NavBar extends React.Component {
   constructor(props){
     super(props);
-    //boiler, nothing really goes in here atm
-    this.state = {};
+    this.state = {
+      open: false,
+    };
     this.handeTouch = this.handeTouch.bind(this);
   }
 
@@ -28,13 +31,29 @@ class NavBar extends React.Component {
     return ;
   }
 
+  handleToggle (){
+    this.setState({open: !this.state.open});
+  }
+
   render() {
     return (
-      <AppBar
-        title={<span style={css.title}>Scoreboard Mobile</span>}
-        onTitleTouchTap={(e) => this.handeTouch(e)}
-        iconElementRight={<IconButton style={css.button}><NavigationVert /></IconButton>}
-      />
+      <div>
+        <AppBar
+          title={<span style={css.title}>Scoreboard Mobile</span>}
+          onTitleTouchTap={(e) => this.handeTouch(e)}
+          iconElementRight={<IconButton onTouchTap={() => this.handleToggle()} style={css.button}>
+            <NavigationVert />
+          </IconButton>}
+        />
+        <Drawer open={this.state.open}>
+          <MenuItem>Cisco PO #3233</MenuItem>
+          <MenuItem>Irregardless</MenuItem>
+          <MenuItem>Eatsa PO #12</MenuItem>
+          <MenuItem>Facebook</MenuItem>
+          <MenuItem>Oracle</MenuItem>
+          <MenuItem>Epic Games</MenuItem>
+        </Drawer>
+      </div>
     );
   }
 }
