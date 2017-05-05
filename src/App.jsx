@@ -12,9 +12,7 @@ class App extends React.Component {
     return(
       <div>
         <NavBar />
-        <br/>
         <Timer />
-        <br/>
         <DataCharts />
       </div>
     );
