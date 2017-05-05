@@ -19,10 +19,6 @@ const styles = {
 class DataCharts extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      value: 'Day'
-    };
   }
 
   render() {
