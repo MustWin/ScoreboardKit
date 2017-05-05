@@ -31,7 +31,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <AppBar
-        title={<span style={css.title}>Cisco Project #2000</span>}
+        title={<span style={css.title}>Scoreboard Mobile</span>}
         onTitleTouchTap={(e) => this.handeTouch(e)}
         iconElementRight={<IconButton style={css.button}><NavigationVert /></IconButton>}
       />

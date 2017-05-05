@@ -1,17 +1,22 @@
 import React, {Component} from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './navbar';
+import Timer from './timer/timer';
+import DataCharts from './DataCharts/datacharts';
 
 class App extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
   }
 
   render() {
     return(
-      <MuiThemeProvider>
+      <div>
         <NavBar />
-      </MuiThemeProvider>
+        <br/>
+        <Timer />
+        <br/>
+        <DataCharts />
+      </div>
     );
   }
 
