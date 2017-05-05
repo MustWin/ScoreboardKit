@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import BillingChart from './billingChart';
 injectTapEventPlugin();
 
 const styles = {
@@ -26,21 +27,20 @@ class DataCharts extends React.Component {
       <Tabs>
          <Tab label="1 Day">
            <div>
-             <h2 style={styles.headline}>Tab One</h2>
-             <p style={styles.paragraph}>This is an example tab.</p>
-             <p style={styles.paragraph}>You can put any sort of HTML or react component in here. It even keeps the component state!</p>
+             <h2 style={styles.headline}>1 Day</h2>
+            <BillingChart />
            </div>
          </Tab>
          <Tab label="1 Week">
            <div>
-             <h2 style={styles.headline}>Tab Two</h2>
-             <p style={styles.paragraph}>This is an example tab 2.</p>
+             <h2 style={styles.headline}>1 Week</h2>
+             <BillingChart />
            </div>
          </Tab>
          <Tab label="1 Month">
            <div>
-             <h2 style={styles.headline}>Tab Three</h2>
-             <p style={styles.paragraph}>This is an example tab 3.</p>
+             <h2 style={styles.headline}>1 Month</h2>
+             <BillingChart />
            </div>
          </Tab>
        </Tabs>
