@@ -20,17 +20,7 @@ const css = {
 class NavBar extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      open: false,
-    };
-
-    this.handleToggle = this.handleToggle.bind(this);
   }
-
-  handleToggle (){
-    this.setState({open: !this.state.open});
-  }
-
 
   render() {
 
@@ -44,11 +34,11 @@ class NavBar extends React.Component {
       <div>
         <AppBar
           title={<span style={css.title}>{project.name}</span>}
-          iconElementRight={<IconButton onTouchTap={() => this.handleToggle()} style={css.button}>
+          iconElementRight={<IconButton onTouchTap={this.props.onNavToggle} style={css.button}>
             <NavigationVert />
           </IconButton>}
         />
-        <Drawer open={this.state.open}>
+        <Drawer open={this.props.open}>
           {menuItems}
         </Drawer>
       </div>

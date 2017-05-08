@@ -10,10 +10,12 @@ class App extends React.Component {
     this.state = {
       currentProjectId: 1,
       billingFilter: '3 Days',
+      navOpen: false,
     };
 
     this.handleCurrentProject = this.handleCurrentProject.bind(this);
     this.handleBillingView =  this.handleBillingView.bind(this);
+    this.handleNavToggle =  this.handleNavToggle.bind(this);
   }
 
   handleCurrentProject(projectId) {
@@ -28,6 +30,12 @@ class App extends React.Component {
     });
   }
 
+  handleNavToggle(){
+    this.setState({
+      navOpen: !this.state.navOpen,
+    });
+  }
+
   render() {
     let projects = this.props.data;
     let currentProject;
@@ -37,7 +45,12 @@ class App extends React.Component {
 
     return(
       <div>
-        <NavBar project={currentProject} allProjects={projects} />
+        <NavBar
+          project={currentProject}
+          allProjects={projects}
+          open={this.state.navOpen}
+          onNavToggle={this.handleNavToggle}
+        />
         <Timer project={currentProject} />
         <DataCharts
           project={currentProject}
