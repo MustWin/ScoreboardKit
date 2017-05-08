@@ -8,15 +8,23 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentProjectId: 1
+      currentProjectId: 1,
+      billingFilter: '3 Days',
     };
 
     this.handleCurrentProject = this.handleCurrentProject.bind(this);
+    this.handleBillingView =  this.handleBillingView.bind(this);
   }
 
   handleCurrentProject(projectId) {
     this.setState({
       currentProjectId: projectId
+    });
+  }
+
+  handleBillingView(billingView){
+    this.setState({
+      billingFilter: billingView
     });
   }
 
@@ -31,7 +39,11 @@ class App extends React.Component {
       <div>
         <NavBar project={currentProject} allProjects={projects} />
         <Timer project={currentProject} />
-        <DataCharts project={currentProject}  />
+        <DataCharts
+          project={currentProject}
+          chartFilter={this.state.billingFilter}
+          onFilterChange={this.handleBillingView}
+        />
       </div>
     );
   }

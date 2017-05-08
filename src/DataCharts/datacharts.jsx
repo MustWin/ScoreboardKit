@@ -17,7 +17,6 @@ const styles = {
   }
 };
 
-
 //TODO: replace with data formatted from data.json
 const MOCKDATA = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -49,13 +48,12 @@ const MOCKDATA = {
 class DataCharts extends React.Component {
   constructor(props) {
     super(props);
-    this.constructDataSet = this.constructDataSet.bind(this);
+    this.billingFilterUpdate = this.billingFilterUpdate.bind(this);
   }
 
-
-  //on click via the filter, construct the data set for the chart
-  constructDataSet(filter) {
-
+  billingFilterUpdate(event) {
+    console.log(event);
+    this.props.onFilterChange(event);
   }
 
   render() {
@@ -63,20 +61,22 @@ class DataCharts extends React.Component {
     let project = this.props.project;
 
     return (
-      <Tabs>
-         <Tab label="1 Day">
+      <Tabs
+        value={this.props.billingFilter}
+        onChange={this.billingFilterUpdate}>
+         <Tab label="3 Days" value="3 Days">
            <div>
-             <h2 style={styles.headline}>1 Day</h2>
+             <h2 style={styles.headline}>3 Days</h2>
             <BillingChart project={project} data={MOCKDATA} />
            </div>
          </Tab>
-         <Tab label="1 Week">
+         <Tab label="1 Week" value="1 Week">
            <div>
              <h2 style={styles.headline}>1 Week</h2>
              <BillingChart project={project} data={MOCKDATA}/>
            </div>
          </Tab>
-         <Tab label="1 Month">
+         <Tab label="1 Month" value="1 Month">
            <div>
              <h2 style={styles.headline}>1 Month</h2>
              <BillingChart project={project} data={MOCKDATA}/>
