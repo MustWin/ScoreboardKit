@@ -49,16 +49,40 @@ class DataCharts extends React.Component {
   constructor(props) {
     super(props);
     this.billingFilterUpdate = this.billingFilterUpdate.bind(this);
+    this.formatData = this.formatData.bind(this);
   }
 
+  formatData(project){
+    let labels, data;
+    let filter = this.props.billingFilter || '3 days';
+
+    if(filter.toLowerCase() === '3 days'){
+      labels = project.billing.days.slice(0,3);
+      data = project.billing.hours.slice(0,3);
+    } else if(filter === '1 week'){
+      labels = project.billing.days.slice(0,7);
+      data = project.billing.hours.slice(0,7);
+    }else{
+      labels = project.billing.days.slice(0,7);
+      data = project.billing.hours.slice(0,7);
+    }
+
+    var tempData = MOCKDATA;
+    tempData.labels = labels;
+    tempData.datasets[0].label = project.name;
+    tempData.datasets[0].data = data;
+    return tempData;
+  }
+
+
   billingFilterUpdate(event) {
-    console.log(event);
     this.props.onFilterChange(event);
   }
 
   render() {
 
     let project = this.props.project;
+    let projData = this.formatData(project);
 
     return (
       <Tabs
