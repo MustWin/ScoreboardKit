@@ -35,6 +35,8 @@ class NavBar extends React.Component {
     this.setState({open: !this.state.open});
   }
 
+
+//TODO: replace navbar MenuItems with projects from data.json
   render() {
     return (
       <div>

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Line} from 'react-chartjs-2';
 
-//move this to the top!
+//TODO: Remove this data, and use data from data.json
 const data = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
