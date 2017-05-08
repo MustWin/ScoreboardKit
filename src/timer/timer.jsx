@@ -26,16 +26,19 @@ const css = {
 };
 
 class Timer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
+
+    let project = this.props.project;
+
     return (
       <Card>
         <CardHeader
-          title="Cisco PO #3223"
-          subtitle="Friday, May 5th 2017"
+          title={project.name}
+          subtitle={project.description}
         />
         <CardText>
           <div style={css.row}>

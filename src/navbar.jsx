@@ -23,6 +23,8 @@ class NavBar extends React.Component {
     this.state = {
       open: false,
     };
+
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
   handleToggle (){
@@ -30,7 +32,6 @@ class NavBar extends React.Component {
   }
 
 
-//TODO: replace navbar MenuItems with projects from data.json
   render() {
 
     let project = this.props.project;
