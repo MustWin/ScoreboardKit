@@ -40,7 +40,7 @@ class App extends React.Component {
     let projects = this.props.data;
     let currentProject;
     if(this.state.currentProjectId){
-      currentProject = this.props.data[this.state.currentProjectId];
+      currentProject = this.props.data[this.state.currentProjectId - 1];
     }
 
     return(
@@ -49,7 +49,9 @@ class App extends React.Component {
           project={currentProject}
           allProjects={projects}
           open={this.state.navOpen}
+          projectID={this.state.currentProjectId}
           onNavToggle={this.handleNavToggle}
+          onProjectSelect={this.handleCurrentProject}
         />
         <Timer project={currentProject} />
         <DataCharts

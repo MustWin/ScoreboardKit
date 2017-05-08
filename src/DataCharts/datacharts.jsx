@@ -22,8 +22,8 @@ const MOCKDATA = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
     {
-      label: 'My First dataset',
-      fill: false,
+      label: 'Mock Dataset',
+      fill: true,
       lineTension: 0.1,
       backgroundColor: 'rgba(75,192,192,0.4)',
       borderColor: 'rgba(75,192,192,1)',
@@ -58,7 +58,7 @@ class DataCharts extends React.Component {
     if(filter.toLowerCase() === '3 days'){
       labels = project.billing.days.slice(0,3);
       data = project.billing.hours.slice(0,3);
-    } else if(filter === '1 week'){
+    } else if(filter.toLowerCase() === '1 week'){
       labels = project.billing.days.slice(0,7);
       data = project.billing.hours.slice(0,7);
     }else{
@@ -66,6 +66,7 @@ class DataCharts extends React.Component {
       data = project.billing.hours;
     }
 
+    //TODO: this here feels super janky, and should be set up somewhere else
     var tempData = MOCKDATA;
     tempData.labels = labels;
     tempData.datasets[0].label = project.name;

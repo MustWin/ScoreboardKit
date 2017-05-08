@@ -5,6 +5,7 @@ import NavigationBack from 'material-ui/svg-icons/navigation/arrow-back';
 import NavigationVert from 'material-ui/svg-icons/navigation/more-vert';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
+import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 const css = {
@@ -20,23 +21,32 @@ const css = {
 class NavBar extends React.Component {
   constructor(props){
     super(props);
+    this.projectUpdate = this.projectUpdate.bind(this);
   }
+
+  projectUpdate(event, index, value){ this.props.onProjectSelect(value); }
 
   render() {
 
     let project = this.props.project;
     let menuItems = [];
     this.props.allProjects.forEach((proj) => {
-      menuItems.push(<MenuItem key={proj.id}>{proj.name}</MenuItem>);
+      menuItems.push(<MenuItem
+        key={proj.id}
+        value={proj.id}
+        primaryText={proj.name}/>
+      );
     });
 
     return (
       <div>
         <AppBar
           title={<span style={css.title}>{project.name}</span>}
-          iconElementRight={<IconButton onTouchTap={this.props.onNavToggle} style={css.button}>
-            <NavigationVert />
-          </IconButton>}
+          iconElementRight={
+            <DropDownMenu value={this.props.projectID} onChange={this.projectUpdate}>
+              {menuItems}
+            </DropDownMenu>
+          }
         />
         <Drawer open={this.props.open}>
           {menuItems}
