@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentProject: 1
+      currentProjectId: 1
     };
 
     this.handleCurrentProject = this.handleCurrentProject.bind(this);
@@ -16,17 +16,22 @@ class App extends React.Component {
 
   handleCurrentProject(projectId) {
     this.setState({
-      currentProject: projectId
+      currentProjectId: projectId
     });
   }
 
   render() {
+    let projects = this.props.data;
+    let currentProject;
+    if(this.state.currentProjectId){
+      currentProject = this.props.data[this.state.currentProjectId];
+    }
 
     return(
       <div>
-        <NavBar data={this.props.data}  />
-        <Timer />
-        <DataCharts  />
+        <NavBar project={currentProject} allProjects={projects} />
+        <Timer project={currentProject} />
+        <DataCharts project={currentProject}  />
       </div>
     );
   }

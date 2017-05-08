@@ -23,12 +23,6 @@ class NavBar extends React.Component {
     this.state = {
       open: false,
     };
-    this.handeTouch = this.handeTouch.bind(this);
-  }
-
-  handeTouch(event) {
-    console.log("tapped: " + event);
-    return ;
   }
 
   handleToggle (){
@@ -38,22 +32,23 @@ class NavBar extends React.Component {
 
 //TODO: replace navbar MenuItems with projects from data.json
   render() {
+
+    let project = this.props.project;
+    let menuItems = [];
+    this.props.allProjects.forEach((proj) => {
+      menuItems.push(<MenuItem key={proj.id}>{proj.name}</MenuItem>);
+    });
+
     return (
       <div>
         <AppBar
-          title={<span style={css.title}>Scoreboard Mobile</span>}
-          onTitleTouchTap={(e) => this.handeTouch(e)}
+          title={<span style={css.title}>{project.name}</span>}
           iconElementRight={<IconButton onTouchTap={() => this.handleToggle()} style={css.button}>
             <NavigationVert />
           </IconButton>}
         />
         <Drawer open={this.state.open}>
-          <MenuItem>Cisco PO #3233</MenuItem>
-          <MenuItem>Irregardless</MenuItem>
-          <MenuItem>Eatsa PO #12</MenuItem>
-          <MenuItem>Facebook</MenuItem>
-          <MenuItem>Oracle</MenuItem>
-          <MenuItem>Epic Games</MenuItem>
+          {menuItems}
         </Drawer>
       </div>
     );
