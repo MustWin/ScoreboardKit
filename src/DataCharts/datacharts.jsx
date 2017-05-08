@@ -52,9 +52,8 @@ class DataCharts extends React.Component {
     this.formatData = this.formatData.bind(this);
   }
 
-  formatData(project){
+  formatData(project, filter){
     let labels, data;
-    let filter = this.props.billingFilter || '3 days';
 
     if(filter.toLowerCase() === '3 days'){
       labels = project.billing.days.slice(0,3);
@@ -63,8 +62,8 @@ class DataCharts extends React.Component {
       labels = project.billing.days.slice(0,7);
       data = project.billing.hours.slice(0,7);
     }else{
-      labels = project.billing.days.slice(0,7);
-      data = project.billing.hours.slice(0,7);
+      labels = project.billing.days;
+      data = project.billing.hours;
     }
 
     var tempData = MOCKDATA;
@@ -82,11 +81,11 @@ class DataCharts extends React.Component {
   render() {
 
     let project = this.props.project;
-    let projData = this.formatData(project);
+    let projData = this.formatData(project, this.props.chartFilter);
 
     return (
       <Tabs
-        value={this.props.billingFilter}
+        value={this.props.chartFilter}
         onChange={this.billingFilterUpdate}>
          <Tab label="3 Days" value="3 Days">
            <div>
