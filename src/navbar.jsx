@@ -8,7 +8,7 @@ import Drawer from 'material-ui/Drawer';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
-const css = {
+const appBarStyle = {
   title: {
     cursor: 'pointer',
   },
@@ -41,7 +41,7 @@ class NavBar extends React.Component {
     return (
       <div>
         <AppBar
-          title={<span style={css.title}>{project.name}</span>}
+          title={<span style={appBarStyle.title}>{project.name}</span>}
           iconElementRight={
             <DropDownMenu value={this.props.projectID} onChange={this.projectUpdate}>
               {menuItems}

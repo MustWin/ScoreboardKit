@@ -49,10 +49,20 @@ class DataCharts extends React.Component {
   constructor(props) {
     super(props);
     this.billingFilterUpdate = this.billingFilterUpdate.bind(this);
+    this.updateFilter = this.updateFilter.bind(this);
     this.formatData = this.formatData.bind(this);
   }
 
-  formatData(project, filter){
+  //helper to set the data
+  formatData(project, data, labels){
+    var tempData = MOCKDATA;
+    tempData.labels = labels;
+    tempData.datasets[0].label = project.name;
+    tempData.datasets[0].data = data;
+    return tempData;
+  }
+
+  updateFilter(project, filter){
     let labels, data;
 
     if(filter.toLowerCase() === '3 days'){
@@ -65,15 +75,8 @@ class DataCharts extends React.Component {
       labels = project.billing.days;
       data = project.billing.hours;
     }
-
-    //TODO: this here feels super janky, and should be set up somewhere else
-    var tempData = MOCKDATA;
-    tempData.labels = labels;
-    tempData.datasets[0].label = project.name;
-    tempData.datasets[0].data = data;
-    return tempData;
+    return this.formatData(project, data, labels);
   }
-
 
   billingFilterUpdate(event) {
     this.props.onFilterChange(event);
@@ -82,7 +85,7 @@ class DataCharts extends React.Component {
   render() {
 
     let project = this.props.project;
-    let projData = this.formatData(project, this.props.chartFilter);
+    let projData = this.updateFilter(project, this.props.chartFilter);
 
     return (
       <Tabs

@@ -8,8 +8,8 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-const css = {
-  row: {
+const appTimerStyles = {
+  timerRow: {
     width: '100%',
     maxWidth: '100%',
     display: 'block',
@@ -41,8 +41,8 @@ class Timer extends React.Component {
           subtitle={project.description}
         />
         <CardText>
-          <div style={css.row}>
-            <h3 style={css.colLeft}>Hours Today</h3>
+          <div style={appTimerStyles.timerRow}>
+            <h3 style={appTimerStyles.colLeft}>Hours Today</h3>
             <IconMenu
              iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
              anchorOrigin={{horizontal: 'right', vertical: 'top'}}
@@ -54,8 +54,8 @@ class Timer extends React.Component {
              <MenuItem primaryText="Delete" />
            </IconMenu>
           </div>
-          <div style={css.row}>
-            <h1 style={css.time}>3:23:33</h1>
+          <div style={appTimerStyles.timerRow}>
+            <h1 style={appTimerStyles.time}>3:23:33</h1>
           </div>
         </CardText>
       </Card>
