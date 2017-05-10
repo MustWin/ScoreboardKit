@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import NavBar from './navbar';
 import Timer from './timer/timer';
+import Divider from 'material-ui/Divider';
+
 import DataCharts from './DataCharts/datacharts';
 
 class App extends React.Component {
@@ -53,7 +55,9 @@ class App extends React.Component {
           onNavToggle={this.handleNavToggle}
           onProjectSelect={this.handleCurrentProject}
         />
+        <br />
         <Timer project={currentProject} />
+        <br />
         <DataCharts
           project={currentProject}
           chartFilter={this.state.billingFilter}

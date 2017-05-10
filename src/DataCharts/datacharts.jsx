@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import BillingChart from './billingChart';
+import {Card} from 'material-ui/Card';
 injectTapEventPlugin();
 
 const styles = {
@@ -14,6 +15,9 @@ const styles = {
   },
   paragraph: {
     fontSize: 12,
+  },
+  chart: {
+    padding: '20px'
   }
 };
 
@@ -88,28 +92,30 @@ class DataCharts extends React.Component {
     let projData = this.updateFilter(project, this.props.chartFilter);
 
     return (
-      <Tabs
-        value={this.props.chartFilter}
-        onChange={this.billingFilterUpdate}>
-         <Tab label="3 Days" value="3 Days">
-           <div>
-             <h2 style={styles.headline}>3 Days</h2>
-            <BillingChart project={project} data={MOCKDATA} />
-           </div>
-         </Tab>
-         <Tab label="1 Week" value="1 Week">
-           <div>
-             <h2 style={styles.headline}>1 Week</h2>
-             <BillingChart project={project} data={MOCKDATA}/>
-           </div>
-         </Tab>
-         <Tab label="1 Month" value="1 Month">
-           <div>
-             <h2 style={styles.headline}>1 Month</h2>
-             <BillingChart project={project} data={MOCKDATA}/>
-           </div>
-         </Tab>
-       </Tabs>
+      <Card>
+        <Tabs
+          value={this.props.chartFilter}
+          onChange={this.billingFilterUpdate}>
+           <Tab label="3 Days" value="3 Days">
+             <div style={styles.chart}>
+               <h2 style={styles.headline}>3 Days</h2>
+              <BillingChart project={project} data={MOCKDATA} />
+             </div>
+           </Tab>
+           <Tab label="1 Week" value="1 Week">
+             <div style={styles.chart}>
+               <h2 style={styles.headline}>1 Week</h2>
+               <BillingChart project={project} data={MOCKDATA}/>
+             </div>
+           </Tab>
+           <Tab label="1 Month" value="1 Month">
+             <div style={styles.chart}>
+               <h2 style={styles.headline}>1 Month</h2>
+               <BillingChart project={project} data={MOCKDATA}/>
+             </div>
+           </Tab>
+         </Tabs>
+      </Card>
     );
   }
 }
