@@ -13,6 +13,7 @@ class App extends React.Component {
       currentProjectId: 1,
       billingFilter: '3 Days',
       navOpen: false,
+      secondsWorked: 0,
     };
 
     this.handleCurrentProject = this.handleCurrentProject.bind(this);
@@ -40,6 +41,7 @@ class App extends React.Component {
 
   render() {
     let projects = this.props.data;
+    let secondsWorked =  this.state.secondsWorked;
     let currentProject;
     if(this.state.currentProjectId){
       currentProject = this.props.data[this.state.currentProjectId - 1];
@@ -56,7 +58,7 @@ class App extends React.Component {
           onProjectSelect={this.handleCurrentProject}
         />
         <br />
-        <Timer project={currentProject} />
+        <Timer project={currentProject} secondsWorked={secondsWorked}/>
         <br />
         <DataCharts
           project={currentProject}

@@ -8,9 +8,32 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
+
+    this.convertTime = this.convertTime.bind(this);
+    this.pad =  this.pad.bind(this);
+  }
+
+  pad(value, size){
+    let s = "0000" + value;
+    return s.substr(s.length - size);
+  }
+
+  convertTime(secondsWorked){
+    let h, m, s = 0;
+    let time = '';
+    h = Math.floor(secondsWorked / (60 * 60 * 1000));
+    m = Math.floor(secondsWorked / (60 * 1000) % 60);
+    s = Math.floor(secondsWorked / 1000 % 60);
+
+    time = this.pad(h,2) + ":" + this.pad(m,2) + ":" + this.pad(s, 2);
+    return time;
+
   }
 
   render() {
+
+    let time = this.convertTime(this.props.secondsWorked);
+
     return (
       <div>
         <IconMenu
@@ -23,7 +46,7 @@ class Stopwatch extends React.Component {
           <MenuItem primaryText="Stop" />
           <MenuItem primaryText="Reset" />
         </IconMenu>
-        <h1>00:00:00</h1>
+        <h1>{time}</h1>
       </div>
     );
   }

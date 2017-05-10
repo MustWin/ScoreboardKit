@@ -35,7 +35,7 @@ class Timer extends React.Component {
         <CardText>
           <div style={appTimerStyles.timerRow}>
             <h3 style={appTimerStyles.colLeft}>Hours Today</h3>
-            <Stopwatch />
+            <Stopwatch secondsWorked={this.props.secondsWorked}/>
           </div>
         </CardText>
       </Card>
