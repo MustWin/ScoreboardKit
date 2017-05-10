@@ -1,12 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
-import FileUpload from 'material-ui/svg-icons/file/file-upload';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import Stopwatch from './stopwatch';
 
 const appTimerStyles = {
   timerRow: {
@@ -43,19 +38,7 @@ class Timer extends React.Component {
         <CardText>
           <div style={appTimerStyles.timerRow}>
             <h3 style={appTimerStyles.colLeft}>Hours Today</h3>
-            <IconMenu
-             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-             targetOrigin={{horizontal: 'right', vertical: 'top'}}>
-             <MenuItem primaryText="Start" />
-             <MenuItem primaryText="Pause" />
-             <MenuItem primaryText="Edit" />
-             <MenuItem primaryText="Bill" />
-             <MenuItem primaryText="Delete" />
-           </IconMenu>
-          </div>
-          <div style={appTimerStyles.timerRow}>
-            <h1 style={appTimerStyles.time}>3:23:33</h1>
+            <Stopwatch />
           </div>
         </CardText>
       </Card>
