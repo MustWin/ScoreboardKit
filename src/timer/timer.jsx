@@ -14,9 +14,6 @@ const appTimerStyles = {
     width: '90%',
     display: 'inline',
     float: 'left',
-  },
-  time: {
-    fontSize: '48px',
   }
 };
 
