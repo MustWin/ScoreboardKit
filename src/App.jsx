@@ -13,7 +13,7 @@ class App extends React.Component {
       currentProjectId: 1,
       billingFilter: '3 Days',
       navOpen: false,
-      secondsWorked: 0,
+      secondsWorked: 3600,
     };
 
     this.handleCurrentProject = this.handleCurrentProject.bind(this);

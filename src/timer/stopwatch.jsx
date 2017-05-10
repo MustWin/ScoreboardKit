@@ -21,9 +21,9 @@ class Stopwatch extends React.Component {
   convertTime(secondsWorked){
     let h, m, s = 0;
     let time = '';
-    h = Math.floor(secondsWorked / (60 * 60 * 1000));
-    m = Math.floor(secondsWorked / (60 * 1000) % 60);
-    s = Math.floor(secondsWorked / 1000 % 60);
+    h = Math.floor(secondsWorked / (60 * 60));
+    m = Math.floor(secondsWorked / 60 % 60);
+    s = Math.floor(secondsWorked % 60);
 
     time = this.pad(h,2) + ":" + this.pad(m,2) + ":" + this.pad(s, 2);
     return time;
