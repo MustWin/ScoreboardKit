@@ -11,14 +11,17 @@ const mountWithContext = node => mount(node, {
 
 describe('Stopwatch', () => {
   it('Should render without throwing an error', () => {
-    expect(shallow(<Stopwatch />).contains(<h1>00:00:00</h1>)).toBe(true);
+    const state = {
+      secondsWorked: 0,
+    };
+    expect(shallow(<Stopwatch secondsWorked={state.secondsWorked} />).contains(<h1>00:00:00</h1>)).toBe(true);
   });
 
   it('Displays hours correctly', () => {
-    const wrapper = mountWithContext(<Stopwatch />);
     const state = {
       secondsWorked: 3600,
     };
+    const wrapper = mountWithContext(<Stopwatch secondsWorked={state.secondsWorked} />);
     wrapper.setState(state);
 
     expect(wrapper.find('h1').first().text()).toEqual('01:00:00');
