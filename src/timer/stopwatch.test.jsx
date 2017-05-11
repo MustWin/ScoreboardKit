@@ -11,19 +11,11 @@ const mountWithContext = node => mount(node, {
 
 describe('Stopwatch', () => {
   it('Should render without throwing an error', () => {
-    const state = {
-      secondsWorked: 0,
-    };
-    expect(shallow(<Stopwatch secondsWorked={state.secondsWorked} />).contains(<h1>00:00:00</h1>)).toBe(true);
+    expect(shallow(<Stopwatch secondsWorked={0} />).contains(<h1>00:00:00</h1>)).toBe(true);
   });
 
   it('Displays hours correctly', () => {
-    const state = {
-      secondsWorked: 3600,
-    };
-    const wrapper = mountWithContext(<Stopwatch secondsWorked={state.secondsWorked} />);
-    wrapper.setState(state);
-
+    const wrapper = mountWithContext(<Stopwatch secondsWorked={3600} />);
     expect(wrapper.find('h1').first().text()).toEqual('01:00:00');
   });
 });
