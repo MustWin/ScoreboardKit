@@ -4,13 +4,13 @@ import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import Moment from 'moment';
 
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
 
     this.convertTime = this.convertTime.bind(this);
-    this.pad =  this.pad.bind(this);
   }
 
   pad(value, size){
@@ -19,15 +19,8 @@ class Stopwatch extends React.Component {
   }
 
   convertTime(secondsWorked){
-    let h, m, s = 0;
-    let time = '';
-    h = Math.floor(secondsWorked / (60 * 60));
-    m = Math.floor(secondsWorked / 60 % 60);
-    s = Math.floor(secondsWorked % 60);
-
-    time = this.pad(h,2) + ":" + this.pad(m,2) + ":" + this.pad(s, 2);
+    let time = Moment.utc(secondsWorked * 1000).format('HH:mm:ss');
     return time;
-
   }
 
   render() {
