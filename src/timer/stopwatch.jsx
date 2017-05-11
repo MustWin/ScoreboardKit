@@ -9,13 +9,7 @@ import Moment from 'moment';
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
-
     this.convertTime = this.convertTime.bind(this);
-  }
-
-  pad(value, size){
-    let s = "0000" + value;
-    return s.substr(s.length - size);
   }
 
   convertTime(secondsWorked){
