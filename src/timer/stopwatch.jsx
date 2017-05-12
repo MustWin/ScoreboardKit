@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import IconMenu from 'material-ui/IconMenu';
@@ -7,12 +9,12 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Moment from 'moment';
 
 class Stopwatch extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.convertTime = this.convertTime.bind(this);
   }
 
-  convertTime(secondsWorked){
+  convertTime(secondsWorked: any){
     let time = Moment.utc(secondsWorked * 1000).format('HH:mm:ss');
     return time;
   }

@@ -32,7 +32,7 @@
     "eslint-plugin-jest": "^20.0.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "flow-bin": "^0.44.2",
+    "flow-bin": "^0.46.0",
     "style-loader": "^0.16.1",
     "webpack": "^2.4.1"
   },
