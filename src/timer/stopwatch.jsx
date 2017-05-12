@@ -14,7 +14,7 @@ class Stopwatch extends React.Component {
     this.convertTime = this.convertTime.bind(this);
   }
 
-  convertTime(secondsWorked: any){
+  convertTime = function(secondsWorked: any){
     let time = Moment.utc(secondsWorked * 1000).format('HH:mm:ss');
     return time;
   }
