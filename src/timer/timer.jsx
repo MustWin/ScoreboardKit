@@ -1,3 +1,5 @@
+// @flow
+
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -17,7 +19,7 @@ const timerRow = {
 };
 
 class Timer extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
   }
 

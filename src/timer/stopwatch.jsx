@@ -12,6 +12,7 @@ import Snackbar from 'material-ui/Snackbar';
 class Stopwatch extends React.Component {
   constructor(props: any) {
     super(props);
+
     this.convertTime = this.convertTime.bind(this);
     this.startTime = this.startTime.bind(this);
     this.stopTime = this.stopTime.bind(this);
@@ -19,7 +20,7 @@ class Stopwatch extends React.Component {
     this.resetTime = this.resetTime.bind(this);
   }
 
-  convertTime(secondsWorked: Int){
+  convertTime(secondsWorked: number){
     let time = Moment.utc(secondsWorked * 1000).format('HH:mm:ss');
     return time;
   }
@@ -49,11 +50,10 @@ class Stopwatch extends React.Component {
         <IconMenu
           iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
           anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-          targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-        >
+          targetOrigin={{ horizontal: 'right', vertical: 'top' }}>
           <MenuItem primaryText="Start" onTouchTap={this.startTime} />
-          <MenuItem primaryText="Pause" onTouchTap={this.pauseTime}/>
-          <MenuItem primaryText="Stop" onTouchTap={this.stopTime} />
+          <MenuItem primaryText="Pause" onTouchTap={this.pauseTime} />
+          <MenuItem primaryText="Stop"  onTouchTap={this.stopTime}  />
           <MenuItem primaryText="Reset" onTouchTap={this.resetTime} />
         </IconMenu>
         <h1>{time}</h1>

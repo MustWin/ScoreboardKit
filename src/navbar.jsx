@@ -1,3 +1,5 @@
+// @flow
+
 import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -19,12 +21,14 @@ const appBarStyle = {
 
 
 class NavBar extends React.Component {
-  constructor(props){
+  constructor(props: any){
     super(props);
     this.projectUpdate = this.projectUpdate.bind(this);
   }
 
-  projectUpdate(event, index, value){ this.props.onProjectSelect(value); }
+  projectUpdate(event: Event, index: number, value: any){
+    this.props.onProjectSelect(value);
+  }
 
   render() {
 

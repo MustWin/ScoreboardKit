@@ -6,7 +6,7 @@ import Divider from 'material-ui/Divider';
 import DataCharts from './DataCharts/datacharts';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props: any){
     super(props);
 
     this.state = {
@@ -22,13 +22,13 @@ class App extends React.Component {
     this.handleNavToggle =  this.handleNavToggle.bind(this);
   }
 
-  handleCurrentProject(projectId) {
+  handleCurrentProject(projectId: number) {
     this.setState({
       currentProjectId: projectId
     });
   }
 
-  handleBillingView(billingView){
+  handleBillingView(billingView: Boolean){
     this.setState({
       billingFilter: billingView
     });
