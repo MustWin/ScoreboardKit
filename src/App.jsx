@@ -16,6 +16,10 @@ class App extends React.Component {
     snackOpen: boolean,
   };
 
+  handleCurrentProject: Function;
+     handleBillingView: Function;
+       handleNavToggle: Function;
+
   constructor(props: any){
     super(props);
 

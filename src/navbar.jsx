@@ -19,8 +19,9 @@ const appBarStyle = {
   }
 };
 
-
 class NavBar extends React.Component {
+  projectUpdate: Function;
+  
   constructor(props: any){
     super(props);
     this.projectUpdate = this.projectUpdate.bind(this);

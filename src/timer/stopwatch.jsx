@@ -10,6 +10,12 @@ import Moment from 'moment';
 import Snackbar from 'material-ui/Snackbar';
 
 class Stopwatch extends React.Component {
+  convertTime: Function;
+    startTime: Function;
+    pauseTime: Function;
+    resetTime: Function;
+     stopTime: Function;
+
   constructor(props: any) {
     super(props);
 
