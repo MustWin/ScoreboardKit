@@ -1,3 +1,5 @@
+// @flow
+
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Tabs, Tab} from 'material-ui/Tabs';
@@ -50,7 +52,7 @@ const MOCKDATA = {
 }
 
 class DataCharts extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.billingFilterUpdate = this.billingFilterUpdate.bind(this);
     this.updateFilter = this.updateFilter.bind(this);
@@ -66,7 +68,7 @@ class DataCharts extends React.Component {
     return tempData;
   }
 
-  updateFilter(project, filter){
+  updateFilter(project, filter: string){
     let labels, data;
 
     if(filter.toLowerCase() === '3 days'){
@@ -82,7 +84,7 @@ class DataCharts extends React.Component {
     return this.formatData(project, data, labels);
   }
 
-  billingFilterUpdate(event) {
+  billingFilterUpdate(event: Event) {
     this.props.onFilterChange(event);
   }
 

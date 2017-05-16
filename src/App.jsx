@@ -1,3 +1,5 @@
+// @flow
+
 import React, {Component} from 'react';
 import NavBar from './navbar';
 import Timer from './timer/timer';
