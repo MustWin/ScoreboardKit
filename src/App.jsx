@@ -8,6 +8,14 @@ import Divider from 'material-ui/Divider';
 import DataCharts from './DataCharts/datacharts';
 
 class App extends React.Component {
+  state: {
+    currentProjectId: number,
+    billingFilter: string,
+    navOpen: boolean,
+    secondsWorked: number,
+    snackOpen: boolean,
+  };
+
   constructor(props: any){
     super(props);
 
@@ -30,7 +38,7 @@ class App extends React.Component {
     });
   }
 
-  handleBillingView(billingView: Boolean){
+  handleBillingView(billingView: string){
     this.setState({
       billingFilter: billingView
     });

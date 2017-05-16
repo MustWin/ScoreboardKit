@@ -60,7 +60,7 @@ class DataCharts extends React.Component {
   }
 
   //helper to set the data
-  formatData(project, data, labels){
+  formatData(project: any, data: any, labels: any){
     var tempData = MOCKDATA;
     tempData.labels = labels;
     tempData.datasets[0].label = project.name;
@@ -68,7 +68,7 @@ class DataCharts extends React.Component {
     return tempData;
   }
 
-  updateFilter(project, filter: string){
+  updateFilter(project: any, filter: string){
     let labels, data;
 
     if(filter.toLowerCase() === '3 days'){
