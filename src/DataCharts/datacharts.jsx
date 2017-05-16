@@ -54,7 +54,7 @@ const MOCKDATA = {
 class DataCharts extends React.Component {
   billingFilterUpdate: Function;
          updateFilter: Function;
-           formatData: Function;         
+           formatData: Function;
 
   constructor(props: any) {
     super(props);
