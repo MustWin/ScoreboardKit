@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import NavBar from './navbar';
 import Timer from './timer/timer';
 import Divider from 'material-ui/Divider';
-
 import DataCharts from './DataCharts/datacharts';
 
 class App extends React.Component {

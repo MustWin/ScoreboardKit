@@ -12,6 +12,6 @@ const mountWithContext = node => (node, {
 
 describe('Billing Charts', () => {
   it('should render without throwing an error', () => {
-    expect(shallow(<BillingChart />)/contains(<Line />)).tobe(true);
+    expect(shallow(<BillingChart />).contains(<Line />)).toBe(true);
   });
 });

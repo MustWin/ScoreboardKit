@@ -12,6 +12,6 @@ const mountWithContext = node => (node, {
 
 describe('Billing Charts', () => {
   it('should render without throwing an error', () => {
-    expect(shallow(<DataCharts />)/contains(<Card />)).tobe(true);
+    expect(shallow(<DataCharts />).contains(<Card />)).toBe(true);
   });
 });
