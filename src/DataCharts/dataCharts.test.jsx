@@ -26,7 +26,6 @@ describe('Billing Charts', () => {
 
   it('should render without throwing an error', () => {
     expect(shallow(<DataCharts project={project} chartFilter={filter} />)
-      .contains(<Card />))
-      .toBe(true);
+      .contains(<Card />)).toBe(true);
   });
 });
