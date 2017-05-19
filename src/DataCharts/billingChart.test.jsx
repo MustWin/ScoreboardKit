@@ -24,6 +24,6 @@ const project = {
 describe('Billing Charts', () => {
   it('should render without throwing an error', () => {
     expect(shallow(<BillingChart project={project} data={data} />)
-      .contains(<Line data={data} />)).toBe(true);
+      .contains(<Line />)).toBe(true);
   });
 });
