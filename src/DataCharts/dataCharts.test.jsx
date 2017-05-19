@@ -23,9 +23,14 @@ describe('Billing Charts', () => {
 
   const filter = '3 Days';
 
+  const style = {
+    chart: {
+      padding: '20px',
+    },
+  };
 
   it('should render without throwing an error', () => {
     expect(shallow(<DataCharts project={project} chartFilter={filter} />)
-      .contains(<Card />)).toBe(true);
+      .contains(<h3 style={style.chart}>Billing Chart</h3>)).toBe(true);
   });
 });
