@@ -33,4 +33,19 @@ describe('Billing Charts', () => {
       const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
       expect(wrapper.exists()).toBe(true);
   });
+
+  it('should render the tabs without throwing an error', () => {
+    const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
+    expect(wrapper.find(<Tabs />).exists()).toBe(true);
+  });
+
+  it('should display the correct tab when filter is set', () => {
+    const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
+    expect(wrapper.find(<Tab label="3 Days" value="3 Days"/>).exists()).toBe(true);
+
+    //TODO: simulate filter switch via click once the above test is confirmed 
+    filter = '1 Week';
+    wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
+    expect(wrapper.find(<Tab label="1 Week" value="1 Week"/>).exists()).toBe(true);
+  });
 });

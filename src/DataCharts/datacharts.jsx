@@ -61,7 +61,7 @@ class DataCharts extends React.Component {
     return this.formatData(project, data, labels);
   }
 
-  billingFilterUpdate(event: Event) {
+  billingFilterUpdate(event: any) {
     this.props.onFilterChange(event);
   }
 
