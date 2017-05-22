@@ -72,7 +72,6 @@ class DataCharts extends React.Component {
 
     return (
       <Card>
-        <h3 style={styles.chart}>Billing Chart</h3>
         <Tabs
           value={this.props.chartFilter}
           onChange={this.billingFilterUpdate}>

@@ -30,7 +30,7 @@ describe('Billing Charts', () => {
   };
 
   it('should render without throwing an error', () => {
-    expect(shallow(<DataCharts project={project} chartFilter={filter} />)
-      .contains(<h3 style={style.chart}>Billing Chart</h3>)).toBe(true);
+      const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
+      expect(wrapper.exists()).toBe(true);
   });
 });
