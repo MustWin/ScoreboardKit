@@ -71,7 +71,6 @@ class App extends React.Component {
           onNavToggle={this.handleNavToggle}
           onProjectSelect={this.handleCurrentProject}
         />
-        <br />
         <Timer project={currentProject} secondsWorked={secondsWorked}/>
         <br />
         <DataCharts
