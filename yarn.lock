@@ -1053,6 +1053,16 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
+buster-core@=0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/buster-core/-/buster-core-0.6.4.tgz#27bf6bad674244ea720f311d900a0ca1cb786050"
+
+buster-format@~0.5:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/buster-format/-/buster-format-0.5.6.tgz#2b86c322ecf5e1b0ae6e6e7905ebfcf387d2ab95"
+  dependencies:
+    buster-core "=0.6.4"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
@@ -5153,6 +5163,12 @@ spdx-expression-parse@~1.0.0:
 spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
+
+spm-sinon@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/spm-sinon/-/spm-sinon-1.6.0.tgz#7c392177ca992288ff833d7026e62bda46b81fb6"
+  dependencies:
+    buster-format "~0.5"
 
 sprintf-js@~1.0.2:
   version "1.0.3"
