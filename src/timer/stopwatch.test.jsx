@@ -11,7 +11,9 @@ const mountWithContext = node => mount(node, {
 
 describe('Stopwatch', () => {
   it('Should render without throwing an error', () => {
-    expect(shallow(<Stopwatch secondsWorked={0} />).contains(<h1>00:00:00</h1>)).toBe(true);
+    const wrapper = shallow(<Stopwatch secondsWorked={0} />);
+    expect(wrapper.contains(<h1>00:00:00</h1>)).toBe(true);
+
   });
 
   it('Displays hours correctly', () => {

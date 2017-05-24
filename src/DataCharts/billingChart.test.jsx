@@ -10,6 +10,7 @@ const mountWithContext = node => (node, {
   context: {muiTheme},
   childContextTypes: {muiTheme: React.PropTypes.object.isRequired},
 });
+
 const project = {
   id: 1,
   name: 'Test Proj',
