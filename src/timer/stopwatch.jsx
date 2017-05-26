@@ -57,7 +57,7 @@ class Stopwatch extends React.Component {
           iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
           anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
           targetOrigin={{ horizontal: 'right', vertical: 'top' }}>
-          <MenuItem primaryText="Start" onTouchTap={this.startTime} />
+          <MenuItem id="start_btn" primaryText="Start" onTouchTap={this.startTime} />
           <MenuItem primaryText="Pause" onTouchTap={this.pauseTime} />
           <MenuItem primaryText="Stop"  onTouchTap={this.stopTime}  />
           <MenuItem primaryText="Reset" onTouchTap={this.resetTime} />

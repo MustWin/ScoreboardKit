@@ -41,12 +41,12 @@ describe('Billing Charts', () => {
 
   });
 
-  /*it('should display the correct tab when filter is set', () => {
+  it('should display the correct tab when filter is set', () => {
     const wrapper = mount(<DataCharts project={project} chartFilter={filter} />);
     expect(wrapper.find(<Tab label="3 Days" value="3 Days"/>).exists()).toBe(true);
 
     //TODO: simulate filter switch via click once the above test is confirmed
     wrapper.setProps({fiter: '1 Week'});
     expect(wrapper.find(<Tab label="1 Week" value="1 Week"/>).exists()).toBe(true);
-  });*/
+  });
 });

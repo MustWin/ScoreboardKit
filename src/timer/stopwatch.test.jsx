@@ -20,4 +20,10 @@ describe('Stopwatch', () => {
     const wrapper = mountWithContext(<Stopwatch secondsWorked={3600} />);
     expect(wrapper.find('h1').first().text()).toEqual('01:00:00');
   });
+
+  it('Returns a console event on timer start', () => {
+    const wrapper =  shallow(<Stopwatch secondsWorked={0} />);
+    //console.log(wrapper.debug());
+    wrapper.find('#start_btn').simulate('click');
+  });
 });
