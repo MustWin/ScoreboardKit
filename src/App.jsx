@@ -15,9 +15,9 @@ class App extends React.Component {
     snackOpen: boolean,
   };
 
-  handleCurrentProject: Function;
-     handleBillingView: Function;
-       handleNavToggle: Function;
+  setCurrentProject: Function;
+     switchBillingView: Function;
+       toggleNavigation: Function;
 
   constructor(props: any){
     super(props);
@@ -30,24 +30,24 @@ class App extends React.Component {
       snackOpen: false,
     };
 
-    this.handleCurrentProject = this.handleCurrentProject.bind(this);
-    this.handleBillingView =  this.handleBillingView.bind(this);
-    this.handleNavToggle =  this.handleNavToggle.bind(this);
+    this.setCurrentProject = this.setCurrentProject.bind(this);
+    this.switchBillingView =  this.switchBillingView.bind(this);
+    this.toggleNavigation =  this.toggleNavigation.bind(this);
   }
 
-  handleCurrentProject(projectId: number) {
+  setCurrentProject(projectId: number) {
     this.setState({
       currentProjectId: projectId
     });
   }
 
-  handleBillingView(billingView: string){
+  switchBillingView(billingView: string){
     this.setState({
       billingFilter: billingView
     });
   }
 
-  handleNavToggle(){
+  toggleNavigation(){
     this.setState({
       navOpen: !this.state.navOpen,
     });
@@ -68,15 +68,15 @@ class App extends React.Component {
           allProjects={projects}
           open={this.state.navOpen}
           projectID={this.state.currentProjectId}
-          onNavToggle={this.handleNavToggle}
-          onProjectSelect={this.handleCurrentProject}
+          onNavToggle={this.toggleNavigation}
+          onProjectSelect={this.setCurrentProject}
         />
         <Timer project={currentProject} secondsWorked={secondsWorked}/>
         <br />
         <DataCharts
           project={currentProject}
           chartFilter={this.state.billingFilter}
-          onFilterChange={this.handleBillingView}
+          onFilterChange={this.switchBillingView}
         />
       </div>
     );
