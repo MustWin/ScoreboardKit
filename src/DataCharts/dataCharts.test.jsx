@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { getMuiTheme } from 'material-ui/styles/index';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import DataCharts from './dataCharts';
 import Card from 'material-ui/Card';
@@ -28,6 +27,12 @@ describe('Billing Charts', () => {
     chart: {
       padding: '20px',
     },
+    headline: {
+      fontSize: 24,
+      paddingTop: 16,
+      marginBottom: 12,
+      fontWeight: 400,
+    },
   };
 
   it('should render without throwing an error', () => {
@@ -35,16 +40,16 @@ describe('Billing Charts', () => {
       expect(wrapper.exists()).toBe(true);
   });
 
-  /*it('should render the tabs without throwing an error', () => {
+  it('should render the tabs without throwing an error', () => {
     const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
-    expect(wrapper.contains(<Tabs />)).to.equal(true);
-  });*/
+    expect(wrapper.contains(<h2 style={style.headline}>3 Days</h2>)).to.equal(true);
+  });
 
   it('should display the correct tab when filter is set', () => {
-    const wrapper = shallow(<MuiThemeProvider><DataCharts project={project} chartFilter={filter} /></MuiThemeProvider>);
-    expect(wrapper.find(<h2>3 Days</h2>).exists()).toBe(true);
+    const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
+    expect(wrapper.find(<h2 style={style.headline}>3 Days</h2>).exists()).toBe(true);
 
-    /*wrapper.setProps({fiter: '1 Week'});
-    expect(wrapper.find(<h2>1 Week</h2>).exists()).toBe(true);*/
+    wrapper.setState({'filter': '1 Week'});
+    expect(wrapper.find(<h2 style={style.headline}>1 Week</h2>).exists()).toBe(true);
   });
 });
