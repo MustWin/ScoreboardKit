@@ -40,7 +40,7 @@ describe('Billing Charts', () => {
       expect(wrapper.exists()).toBe(true);
   });
 
-  it('should render the tabs without throwing an error', () => {
+  /*it('should render the tabs without throwing an error', () => {
     const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
     expect(wrapper.find(<h2 style={style.headline}>3 Days</h2>).exists()).toBe(true);
   });
@@ -51,5 +51,5 @@ describe('Billing Charts', () => {
 
     wrapper.setState({'filter': '1 Week'});
     expect(wrapper.find(<h2 style={style.headline}>1 Week</h2>).exists()).toBe(true);
-  });
+  });*/
 });
