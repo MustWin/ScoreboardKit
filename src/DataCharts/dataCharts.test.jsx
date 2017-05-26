@@ -42,7 +42,7 @@ describe('Billing Charts', () => {
 
   it('should render the tabs without throwing an error', () => {
     const wrapper = shallow(<DataCharts project={project} chartFilter={filter} />);
-    expect(wrapper.contains(<h2 style={style.headline}>3 Days</h2>)).to.equal(true);
+    expect(wrapper.find(<h2 style={style.headline}>3 Days</h2>).exists()).toBe(true);
   });
 
   it('should display the correct tab when filter is set', () => {
