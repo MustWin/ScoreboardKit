@@ -1,24 +1,14 @@
 // @flow
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import App from './App';
 
-// TODO: Remove these Anys
-class MainApp extends React.Component<any, any, any> {
-  constructor(props: any) {
-      super(props);
-      this.state = {
-          secondsWorked: 1233000,
-          secondsWorkedTodayByHour: [120000, 0, 0, 0, 0, 0]
-      };
-  }
+let PROJECTS = require('./mockData/data.json');
+const MainApp = () => (<App data={PROJECTS} />);
 
-  render() {
-    return (
-      <h1>Hello World</h1>
-    );
-  }
-
-}
-
-ReactDOM.render(<MainApp />, document.getElementById('app')); // eslint-disable-line
+ReactDOM.render(
+  <MuiThemeProvider><MainApp /></MuiThemeProvider>,
+  document.getElementById('app'),
+);
